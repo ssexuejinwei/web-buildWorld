@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokect World</title>
+    <style>.bg{
+        width:100%;
+        height:100%;
+        padding:1px;
+        position:relative;
+        filter: blur(5px);
+        box-sizing:border-box;
+
+    }
+    .bg:after{
+        content: "";
+        width:100%;
+        height:100%;
+        position: relative;
+        left:0;
+        top:0;
+        filter: blur(5px);
+
+    }
+    .logo{
+        position: absolute;
+        z-index: 10;
+        left: 60px;
+        height: 800px;
+        top: -100px;
+    }
+    .music_logo{
+        position: absolute;
+        top: 30px;
+        z-index: 15;
+        left: 30px;
+
+    }
+    @-webkit-keyframes fadeInOut {
+        0% {
+            opacity:1;
+        }
+        25% {
+            opacity:0;
+        }
+        50% {
+            opacity: 0;
+        }
+        75% {
+            opacity:1;
+        }
+    }
+    .anim_fade_image {
+        position:absolute;
+        -webkit-animation-name: fadeInOut;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-duration: 12s;
+        -webkit-animation-direction: alternate;
+    }
+    .image_size{
+        width:1330px;
+        height:620px
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/button.css" >
+</head>
+<body>
+<img class="logo" src="textures/logo.png"/>
+<a href="index.html" class="button button-glow button-border button-rounded button-primary">进入游戏</a>
+<a href="help.html" style="left:700px" class="button button-glow button-border button-rounded button-primary">查看帮助</a>
+<div class="bg">
+    <img class="anim_fade_image image_size" src="screenshot/desertScene.png"/>
+    <img class="image_size" src="screenshot/valley.png"/>
+</div>
+<audio id="music2" src="music/C418%20-%20Eleven.mp3" autoplay="autoplay" loop="loop"></audio>
+<a class="music_logo" href="javascript:playPause();"><img src="textures/music_play.png" width="48" height="50" id="music_btn2" border="0"></a>
+</body>
+<script>
+    function playPause() {
+        var music = document.getElementById('music2');
+        var music_btn = document.getElementById('music_btn2');
+        if (music.paused){
+            music.play();
+            music_btn.src = 'textures/music_play.png';
+        }
+        else{
+            music.pause();
+            music_btn.src = 'textures/music_pause.png';
+        }
+    }
+</script>
+</html>

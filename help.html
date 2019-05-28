@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokect World</title>
+    <style>.bg{
+        width:100%;
+        height:100%;
+        padding:1px;
+        position:relative;
+        filter: blur(5px);
+        box-sizing:border-box;
+
+    }
+    .bg:after{
+        content: "";
+        width:100%;
+        height:100%;
+        position: relative;
+        left:0;
+        top:0;
+        filter: blur(5px);
+
+    }
+    .font{
+        margin: 10px 50px;
+    }
+    .logo{
+        position: absolute;
+        z-index: 13;
+        top: -160px;
+        left: 250px;
+    }
+    @-webkit-keyframes fadeInOut {
+        0% {
+            opacity:1;
+        }
+        25% {
+            opacity:0;
+        }
+        50% {
+            opacity: 0;
+        }
+        75% {
+            opacity:1;
+        }
+    }
+    .anim_fade_image {
+        position:absolute;
+        -webkit-animation-name: fadeInOut;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-duration: 12s;
+        -webkit-animation-direction: alternate;
+    }
+        #container{
+            width: 700px;
+            height: 300px;
+            z-index: 12;
+            /*background: url(screenshot/default1.png);*/
+            background-size:700px 300px;
+            position: absolute;
+            top: 140px;
+            left: 300px;
+            border-radius: 10px;
+        }
+    .music_logo{
+        position: absolute;
+        top: 30px;
+        z-index: 15;
+        left: 30px;
+
+    }
+    .image_size{
+        width:1350px;
+        height:615px
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/button.css" >
+</head>
+<body>
+<img class="logo" src="textures/logo.png"/>
+<div id="container"><p class="font" style="margin-top: 70px">Xue World是一款高度自由的游戏，该游戏以每一个玩家在三维空间中自由地创造和破坏不同种类的方块为主题。玩家在游戏中可以在不同场景中通过摧毁或创造方块以创造精妙绝伦的建筑物和艺术。</p>
+    <p class="font" >整个游戏没有剧情，玩家在游戏中自由建设和破坏，透过像积木一样来对元素进行组合与拼凑，轻而易举的就能制作出小木屋、城堡甚至城市，玩家可以通过自己创造的作品来体验上帝一般的感觉。</p>
+    <p class="font">Xue World着重于让玩家去探索、交互，并且改变一个由一立方米大小的方块动态生成的地图。除了方块以外，环境功能还包括更换场景、植物、地表等其他物体。</p></div>
+<a href="start.html" class="button button-glow button-border button-rounded button-primary">返回</a>
+<audio id="music2" src="music/C418%20-%20Eleven.mp3" autoplay="autoplay" loop="loop"></audio>
+<a class="music_logo" href="javascript:playPause();"><img src="textures/music_play.png" width="48" height="50" id="music_btn2" border="0"></a>
+<div class="bg">
+    <img class="anim_fade_image image_size" src="screenshot/TIM图片20180606151157.png"/>
+    <img class="image_size" src="screenshot/desertScene.png"/>
+</div>
+</body><script>
+    function playPause() {
+        var music = document.getElementById('music2');
+        var music_btn = document.getElementById('music_btn2');
+        if (music.paused){
+            music.play();
+            music_btn.src = 'textures/music_play.png';
+        }
+        else{
+            music.pause();
+            music_btn.src = 'textures/music_pause.png';
+        }
+    }
+</script>
+</html>
